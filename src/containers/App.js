@@ -4,6 +4,12 @@ import Persons from '../components/Persons/Persons'
 import Cockpit from '../components/Cockpit/Cockpit'
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    console.log('[App.js] constructor');
+  }
+
+  // This is actually set smartly in the constructor; just a newer way of doing it
   state = {
     persons: [
       { id: 'asfa1', name: 'Max', age: 28 },
@@ -12,6 +18,20 @@ class App extends Component {
     ],
     otherState: 'some other stuff',
     showPersons: false
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log('[App.js] getDerivedStateFromProps', props);
+    return state;
+  }
+
+  // Will be removed, instead use getDerivedStateFromProps or add your logic into the constructor!
+  componentWillMount() {
+    console.log('[App.js] componentWillMount');
+  }
+
+  componentDidMount() {
+    console.log('[App.js] componentDidMount');
   }
 
   togglePersonsHandler = (newName) => {
@@ -47,7 +67,7 @@ class App extends Component {
   }
 
   render() {
-
+    console.log('[App.js] render');
     let persons = null;
 
     if (this.state.showPersons) {
