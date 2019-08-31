@@ -5,7 +5,11 @@ const Cockpit = (props) => {
     useEffect(() => {
         console.log('[Cockpit.js] useEffect');
         // Http request...
-    });
+        setTimeout(() => {
+            alert('Saved data to cloud!');
+        }, 1000);
+    // Second array arg: tells useEffect to run only when the things in the array have changed
+    }, []);
     const assignedClasses = [];
     let btnClass = '';
     if (props.showPersons) {
