@@ -10,6 +10,8 @@ class Persons extends Component {
     //    console.log('[Persons.js] componentWillReceiveProps');
     //}
 
+    // Using this makes React efficient because then the virtual DOM knows that it doesn't need to
+    // rerender the Persons if Persons didn't change
     shouldComponentUpdate(nextProps, nextState) {
         console.log('[Persons.js] shouldComponentUpdate');
         if (nextProps.persons !== this.props.persons) {
