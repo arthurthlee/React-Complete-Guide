@@ -8,8 +8,19 @@ const Cockpit = (props) => {
         setTimeout(() => {
             alert('Saved data to cloud!');
         }, 1000);
+        return () => {
+            console.log('[Cockpit.js] cleanup work in useEffect')
+        };
     // Second array arg: tells useEffect to run only when the things in the array have changed
     }, []);
+
+    useEffect(() => {
+        console.log('[Cockpit.js] 2nd useEffect');
+        return () => {
+            console.log('[Cockpit.js] cleanup work in 2nd useEffect')
+        };
+    });
+
     const assignedClasses = [];
     let btnClass = '';
     if (props.showPersons) {
