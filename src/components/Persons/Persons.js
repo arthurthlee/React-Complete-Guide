@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import Person from './Person/Person'
 
+
 // PureComponent = Component with a complete props check for shouldComponentUpdate
 class Persons extends PureComponent {
     //static getDerivedStateFromProps(props, state) {
@@ -49,7 +50,6 @@ class Persons extends PureComponent {
             clicked={() => this.props.clicked(index)}
             name={person.name}
             age={person.age}
-            isAuth={this.props.isAuthenticated}
             changed={(event) => this.props.changed(event, person.id)}/>)
         });
     };
